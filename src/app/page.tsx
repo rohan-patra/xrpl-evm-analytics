@@ -23,7 +23,9 @@ import {
 } from "@/components/ui/chart";
 import { Textarea } from "@/components/ui/textarea";
 import React, { useEffect, useState } from "react";
-import ReactJson from "react-json-view";
+const DynamicReactJson = dynamic(() => import("react-json-view"), {
+  ssr: false,
+});
 import {
   PolarAngleAxis,
   PolarGrid,
@@ -35,6 +37,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import dynamic from "next/dynamic";
 
 export default function HomePage() {
   const [query, setQuery] = useState("");
@@ -344,7 +347,7 @@ export default function HomePage() {
               <br />
               {response && (
                 <div className="max-h-[300px] w-full overflow-auto">
-                  <ReactJson
+                  <DynamicReactJson
                     src={response}
                     collapsed={2}
                     theme="bright:inverted"
