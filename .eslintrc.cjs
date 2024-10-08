@@ -43,6 +43,8 @@ const config = {
     "@typescript-eslint/no-unsafe-call": "warn",
     "@typescript-eslint/no-unsafe-return": "warn",
     "@typescript-eslint/no-unsafe-enum-comparison": "warn",
+    "@typescript-eslint/restrict-template-expressions": "warn",
+    "@typescript-eslint/no-empty-object-type": "warn",
   },
 };
 module.exports = config;
